@@ -1,0 +1,22 @@
+---
+# This playbook install and enables the http service for a EC2 instance in AWS.
+
+- name: apply common configuration to (EC2 INSTANCE IP)
+  hosts: (EC2 INSTANCE IP)
+  remote_user: root
+  tasks:
+  - name: Installing httpd service
+    yum: name=httpd state=present
+  - name: Copying the demo file
+    template: src=/etc/ansible/index.html dest=/var/www/html
+ # /etc/ansible/index.html file has the following content
+ #<html>
+ #  <head>
+ #    <title>Hello World</title>
+ #  </head>
+ #  <body>
+ #    <h1>Hello World!</h1>
+ #  </body>
+ #</html>
+  - name: start apache services
+    service: name=httpd enabled=yes state=started
