@@ -1,6 +1,6 @@
-#EC2.readme
+##EC2
 
-EC2 play book
+EC2play book
 
 This playbook Launches an EC2 instance and assigns the ip address to the instance and install and enables the http service for that EC2 instance in AWS.
 
